@@ -1,0 +1,87 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:UncannyRPC.ViewModels"
+        xmlns:AvalonEdit="clr-namespace:AvaloniaEdit;assembly=AvaloniaEdit"
+        xmlns:document="clr-namespace:AvaloniaEdit.Document;assembly=AvaloniaEdit"
+        mc:Ignorable="d"
+        x:Class="UncannyRPC.Views.TomlEditor"
+        Title="Toml Editor"
+        Width="600"
+        Height="420"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        ExtendClientAreaToDecorationsHint="True"
+        CanResize="False">
+        
+        <Panel>
+                <ExperimentalAcrylicBorder IsHitTestVisible="False">
+                        <ExperimentalAcrylicBorder.Material>
+                                <ExperimentalAcrylicMaterial
+                                        BackgroundSource="None"
+                                        TintColor="Black"
+                                        TintOpacity="1"
+                                        MaterialOpacity="0.5" />
+                        </ExperimentalAcrylicBorder.Material>
+                </ExperimentalAcrylicBorder>
+                <Grid>
+                        <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        
+                        <TextBlock Text="Uncanny Rpc - Toml Editor"
+                                   FontWeight="Light"
+                                   FontSize="12"
+                                   Margin="10, 7"
+                                   Foreground="DarkGray"></TextBlock>
+                        
+                        <Grid Grid.Row="1" Margin="20" IsHitTestVisible="True">
+                        <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        
+                        <TextBlock Grid.Row="0"
+                                   Text="TOML Configuration Editor"
+                                   FontSize="15"
+                                   FontWeight="SemiBold"></TextBlock>
+                        <!-- <TextBox Grid.Row="1" -->
+                        <!--          Margin="0, 20" -->
+                        <!--          BorderThickness="3" -->
+                        <!--          FontFamily="Cascadia Mono" -->
+                        <!--          FontSize="15" -->
+                        <!--          TextWrapping="Wrap" -->
+                        <!--          AcceptsReturn="True" -->
+                        <!--          MaxHeight="300" -->
+                        <!--          ToolTip.Tip="Edit your Rich Presence's config here"></TextBox> -->
+                        
+                        <AvalonEdit:TextEditor Grid.Row="1" Name="Editor"
+                                               FontFamily="Consolas, Cascadia Code,Menlo,Monospace"
+                                               Margin="0, 20"
+                                               Foreground="#D4D4D4"
+                                               Background="Black"
+                                               HorizontalScrollBarVisibility="Auto"
+                                               VerticalScrollBarVisibility="Visible"
+                                               FontWeight="Light"
+                                               FontSize="14" 
+                                               ShowLineNumbers="True"
+                                               BorderBrush="DarkGray"
+                                               Height="270"
+                                               Padding="10, 10">
+                        </AvalonEdit:TextEditor>
+                        
+                        <StackPanel Grid.Row="2" Orientation="Horizontal"
+                                    HorizontalAlignment="Right"
+                                    Spacing="10">
+                                
+                                <Button Content="Save"></Button>
+                                <Button Content="Cancel"></Button>
+                                
+                        </StackPanel>
+                </Grid>
+                </Grid>
+        </Panel>
+</Window>

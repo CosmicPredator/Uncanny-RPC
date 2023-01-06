@@ -1,0 +1,13 @@
+﻿
+title = "uncanny"
+
+[general]
+invoke_picture = false
+
+[cpu_usage]
+title_text = "CPU"
+rounding = 0.00
+
+[memory_usage]
+title_text = "RAM"
+rounding = 0.0
