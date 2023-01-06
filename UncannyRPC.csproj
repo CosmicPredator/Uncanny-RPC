@@ -8,11 +8,15 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Folder Include="Config" />
         <Folder Include="Models\" />
         <AvaloniaResource Include="Assets\**" />
         <None Remove=".gitignore" />
         <None Remove="Config\Configuration.toml" />
-        <AvaloniaResource Include="Config\Configuration.toml">
+        <AvaloniaResource Include="Config\**">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </AvaloniaResource>
+        <AvaloniaResource Update="Assets\default_config.toml">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </AvaloniaResource>
     </ItemGroup>
