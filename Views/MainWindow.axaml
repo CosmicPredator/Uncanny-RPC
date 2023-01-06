@@ -44,15 +44,19 @@
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <StackPanel Grid.Row="0" Orientation="Vertical">
+                    <StackPanel Grid.Row="0" Orientation="Vertical"
+                                Spacing="20">
                             <TextBlock Text="Uncanny RPC for Discord"
                                        FontSize="20"
                                        FontFamily="SegoeUI"
-                                       FontWeight="SemiBold"/>
+                                       FontWeight="SemiBold"
+                                       HorizontalAlignment="Center"/>
+                            <CheckBox Content="Enable Rich Presence"
+                                      HorizontalAlignment="Center"
+                                      Checked="ToggleButton_OnChecked"></CheckBox>
                             <Button Content="Open TOML Editor"
                                     Click="Button_OnClick"
-                                    HorizontalAlignment="Center"
-                                    Margin="20"></Button>
+                                    HorizontalAlignment="Center"></Button>
                         </StackPanel>
                     </Grid>
             </ScrollViewer>

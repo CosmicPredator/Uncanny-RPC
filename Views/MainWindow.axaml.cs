@@ -17,7 +17,7 @@ public partial class MainWindow : Window
     {
         e.Cancel = true;
         ShowInTaskbar = false;
-        this.Hide();
+        Hide();
         base.OnClosing(e);
     }
 
@@ -25,5 +25,10 @@ public partial class MainWindow : Window
     {
         var dialog = new TomlEditor();
         await dialog.ShowDialog(this);
+    }
+
+    private void ToggleButton_OnChecked(object? sender, RoutedEventArgs e)
+    {
+        
     }
 }
