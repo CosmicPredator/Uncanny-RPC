@@ -28,8 +28,9 @@ public class TomlParser
     {
         try
         {
+            Data.AppId = Table["general"]["app_id"] ?? 1061295120948932789;
             Data.Title = Table["title"] ?? "uncanny_rpc_config";
-            Data.CoverImage = Table["general"]["coverimage_url"] ?? "default";
+            Data.ImageSource = Table["general"]["coverimage_url"] ?? "default";
             Data.UpdateInterval = Table["general"]["update_interval"] ?? 1000;
             Data.IsCpuEnabled = Table["cpu_monitor"]["enabled"] ?? true;
             Data.CpuTitle = Table["cpu_monitor"]["title"] ?? "CPU";
@@ -50,8 +51,8 @@ public class TomlParser
 
 public class PresenceObject
 {
+    public long AppId { get; set; }
     public string? Title { get; set; }
-    public string? CoverImage { get; set; }
     public int UpdateInterval { get; set; }
     public bool IsCpuEnabled { get; set; }
     public bool IsRamEnabled { get; set; }
