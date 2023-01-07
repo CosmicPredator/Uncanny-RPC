@@ -63,7 +63,8 @@
                                        HorizontalAlignment="Center"/>
                             <CheckBox Content="Enable Rich Presence"
                                       HorizontalAlignment="Center"
-                                      Checked="ToggleButton_OnChecked"></CheckBox>
+                                      Checked="ToggleButton_OnChecked"
+                                      Unchecked="ToggleButton_OnUnchecked"></CheckBox>
                             <Button Content="Edit Config File"
                                     Click="Button_OnClick"
                                     HorizontalAlignment="Center"></Button>

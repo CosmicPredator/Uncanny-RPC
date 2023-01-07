@@ -1,12 +1,22 @@
-﻿title = "uncanny"
+﻿# This title should be required to appear.
+title = "uncanny_rpc_config"
 
+# General properties
 [general]
-invoke_picture = false
+coverimage_url = "default"
+update_interval = 1000
 
-[cpu_usage]
-title_text = "CPU"
-rounding = 0.00
+# CPU usage display properties
+[cpu_monitor]
+title = "CPU"
+enabled = true
+seperator = "-"
+percent_roundoff = 2
 
-[memory_usage]
-title_text = "RAM"
-rounding = 0.0
+# Memory(RAM) usage display properties
+[memory_monitor]
+title = "RAM"
+enabled = true
+seperator = "-"
+current_roundoff = 2
+total_roundoff = 2
