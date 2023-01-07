@@ -15,7 +15,7 @@ namespace UncannyRPC.Views;
 
 public partial class TomlEditor : Window
 {
-    public TextEditor _textEditor;
+    private TextEditor? _textEditor;
     public TomlEditor()
     {
         InitializeComponent();
@@ -31,7 +31,7 @@ public partial class TomlEditor : Window
 
     private void InitEditor()
     {
-        var _registryOptions = new RegistryOptions(ThemeName.DarkPlus);
+        var _registryOptions = new RegistryOptions(ThemeName.TomorrowNightBlue);
         var _textMateInstallation = _textEditor.InstallTextMate(_registryOptions);
         _textMateInstallation.SetGrammar(
             _registryOptions.GetScopeByLanguageId(_registryOptions.GetLanguageByExtension(".cs").Id));

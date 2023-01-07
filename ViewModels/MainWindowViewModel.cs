@@ -13,12 +13,14 @@ public class MainWindowViewModel : ViewModelBase
     {
         Table = LoadTomlFile();
     }
+    
+    
 
     private TomlTable LoadTomlFile()
     {
         var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
         var file = new StreamReader(assets.Open(new Uri("avares://UncannyRPC/Assets/default_config.toml")));
-        TomlTable table = TOML.Parse(file);
+        var table = TOML.Parse(file);
         return table;
     }
 }

@@ -2,14 +2,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="using:UncannyRPC"
              x:Class="UncannyRPC.App">
-    
-    <Application.DataTemplates>
-        <local:ViewLocator/>
-    </Application.DataTemplates>
-    
     <TrayIcon.Icons>
         <TrayIcons>
-            <TrayIcon ToolTipText="Uncanny RPC" Clicked="TrayIcon_OnClicked">
+            <TrayIcon ToolTipText="UncannyRPC" Clicked="TrayIcon_OnClicked"
+                      Icon="Assets/main-logo.png">
                 <TrayIcon.Menu>
                     <NativeMenu>
                         <NativeMenuItem Icon="Assets/button.png" Header="Exit" Click="NativeMenuItem_OnClick"></NativeMenuItem>

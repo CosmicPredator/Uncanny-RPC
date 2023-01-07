@@ -31,21 +31,31 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
                         
-            <TextBlock Text="Uncanny Rpc"
-                       FontWeight="Light"
-                       FontSize="12"
-                       Margin="10, 7"
-                       Foreground="DarkGray"></TextBlock>
+            <StackPanel Orientation="Horizontal"
+                        Margin="10, 7"
+                        Spacing="5">
+                <Image Source="avares://UncannyRPC/Assets/main-logo.png"
+                       Width="12"
+                       Opacity="0.6"></Image>
+                <TextBlock Text="UncannyRPC"
+                           FontWeight="Light"
+                           FontSize="12"
+                           Foreground="DarkGray"></TextBlock>
+            </StackPanel>
 
-        <ScrollViewer Grid.Row="1" Margin="0, 50, 0, 0" IsHitTestVisible="True">
+            <ScrollViewer Grid.Row="1" Margin="0, 40, 0, 0" IsHitTestVisible="True">
                 <Grid HorizontalAlignment="Center">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <StackPanel Grid.Row="0" Orientation="Vertical"
-                                Spacing="20">
+                    <Image Grid.Row="0" Source="avares://UncannyRPC/Assets/main-logo-hd.png"
+                           Width="170"
+                           Height="170"
+                           HorizontalAlignment="Center"></Image>
+                    <StackPanel Grid.Row="1" Orientation="Vertical"
+                                Spacing="20"
+                                Margin="0, 50, 0, 0">
                             <TextBlock Text="Uncanny RPC for Discord"
                                        FontSize="20"
                                        FontFamily="SegoeUI"
@@ -54,7 +64,7 @@
                             <CheckBox Content="Enable Rich Presence"
                                       HorizontalAlignment="Center"
                                       Checked="ToggleButton_OnChecked"></CheckBox>
-                            <Button Content="Open TOML Editor"
+                            <Button Content="Edit Config File"
                                     Click="Button_OnClick"
                                     HorizontalAlignment="Center"></Button>
                         </StackPanel>
