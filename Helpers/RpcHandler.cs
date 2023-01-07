@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Timers;
 using DiscordRPC;
 using DiscordRPC.Logging;
@@ -11,6 +10,7 @@ public class RpcHandler
     private readonly long token;
     private readonly DiscordRpcClient Client;
     private readonly Timer timer = new (1000);
+    private readonly PresenceObject Data;
 
     public RpcHandler(long token)
     {
@@ -33,45 +33,52 @@ public class RpcHandler
         Client.Initialize();
     }
 
-    private void SetPresence(
-        )
+    private void SetPresence()
     {
         Client.SetPresence(new RichPresence()
         {
             Details = string.Format(
                 "{0} {1} {2}",
-                cpuTitle, cpuSeperator, cpuCurrent),
+                Data.CpuTitle, Data.CpuSeperator, Data.CpuCurrent),
             State = string.Format(
                 "{0} {1} {2}/{3}GB",
-                ramTitle,
-                ramSeperator,
-                ramCurrent,
-                ramTotal),
+                Data.RamTitle,
+                Data.RamSeperator,
+                Data.RamCurrent,
+                Data.RamTotal),
             Assets = new Assets()
             {
-                LargeImageKey = imageSource,
+                LargeImageKey = Data.ImageSource,
                 LargeImageText = "UncannyRPC"
             }
         });
     }
 
-    public async Task RunPresence()
+    public void RunPresence()
     {
         timer.Elapsed += (sender, args) =>
         {
-            
+            SetPresence();
         };
+        timer.Start();
+    }
+
+    public void StopPresence()
+    {
+        timer.Stop();
+        Client.ClearPresence();
+        Client.Dispose();
     }
 }
 
 public class PresenceObject
 {
-    public string cpuTitle { get; set; }
-    public string ramTitle { get; set; }
-    public string imageSource { get; set; }
-    public string cpuSeperator { get; set; }
-    public string ramSeperator { get; set; }
-    public string cpuCurrent { get; set; }
-    public string ramCurrent { get; set; }
-    public string ramTotal { get; set; }
+    public string CpuTitle { get; set; }
+    public string RamTitle { get; set; }
+    public string ImageSource { get; set; }
+    public string CpuSeperator { get; set; }
+    public string RamSeperator { get; set; }
+    public string CpuCurrent { get; set; }
+    public string RamCurrent { get; set; }
+    public string RamTotal { get; set; }
 }
