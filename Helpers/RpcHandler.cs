@@ -15,12 +15,12 @@ public class RpcHandler
     private Timer timer;
     private readonly PresenceObject Data;
 
-    public RpcHandler(long token)
+    public RpcHandler()
     {
         var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
         var instance = new TomlParser(new StreamReader(assets.Open(new Uri("avares://UncannyRPC/Assets/default_config.toml"))));
         Data = instance.Data;
-        Client = new(token.ToString());
+        Client = new(Data.AppId.ToString());
         Initializer();
     }
 
@@ -44,12 +44,11 @@ public class RpcHandler
     private double GetCPUPercent()
     {
         var allIdle = new PerformanceCounter(
-            "Processor", 
-            "% Idle Time", 
+            "Processor",
+            "% Idle Time",
             "_Total"
         );
-        double cpu = Convert.ToDouble(100 - allIdle.NextValue());
-        cpu = Math.Round(cpu, Data.CpuCurrentRound);
+        var cpu = Math.Round(allIdle.NextValue(), 2);
         return cpu;
     }
 
@@ -97,9 +96,7 @@ public class RpcHandler
         GetImage();
         Client.SetPresence(new RichPresence()
         {
-            Details = string.Format(
-                "{0} {1} {2}",
-                Data.CpuTitle, Data.CpuSeperator, GetCPUPercent()),
+            Details = $"{Data.CpuTitle} {Data.CpuSeperator} {GetCPUPercent()}%",
             State = string.Format(
                 "{0} {1} {2}/{3}GB",
                 Data.RamTitle,

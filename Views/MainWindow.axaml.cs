@@ -16,7 +16,7 @@ public partial class MainWindow : Window
         Logger.TryGet(LogEventLevel.Fatal, LogArea.Control)?.Log(this, "Avalonia Infrastructure");
         System.Diagnostics.Debug.WriteLine("System Diagnostics Debug");
         InitializeComponent();
-        Handler = new RpcHandler(1061295120948932789);
+        Handler = new RpcHandler();
     }
 
     protected override void OnClosing(CancelEventArgs e)
