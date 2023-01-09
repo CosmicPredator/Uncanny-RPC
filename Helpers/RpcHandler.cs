@@ -82,9 +82,8 @@ public class RpcHandler
             {
                 return "https://i.imgur.com/b6sBuI1.png";
             }
-
-            return "https://i.imgur.com/zFs1M60.png";
         }
+        return "https://i.imgur.com/zFs1M60.png";
     }
 
     private void SetPresence()
