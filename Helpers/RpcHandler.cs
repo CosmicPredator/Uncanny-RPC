@@ -40,19 +40,7 @@ public class RpcHandler
 
         Client.Initialize();
     }
-
-    private double GetCPUPercent()
-    {
-        var allIdle = new PerformanceCounter(
-            "Processor Information",
-            "% Processor Utility",
-            "_Total",
-            true
-        );
-        var cpu = Math.Round(allIdle.NextValue(), Data.CpuCurrentRound);
-        return allIdle.NextValue();
-    }
-
+    
     private double GetCurrentRamPercent()
     {
         string prcName = Process.GetCurrentProcess().ProcessName;
@@ -61,27 +49,26 @@ public class RpcHandler
         return ram;
     }
 
-    private void GetImage()
+    private void GetImage(float cpu)
     {
-        var cpu = GetCPUPercent();
         if (Data.ImageSource == "default")
         {
-            if (cpu is < 16.6 and >= 0.0)
+            if (cpu is < 16.6f and >= 0.0f)
             {
                 Data.ImageSource = "https://i.imgur.com/QCAIyQ5.png";
-            } else if (cpu is < 33.33 and >= 16.7)
+            } else if (cpu is < 33.33f and >= 16.7f)
             {
                 Data.ImageSource = "https://i.imgur.com/EbQWujK.png";
-            } else if (cpu is < 49.8 and >= 33.4)
+            } else if (cpu is < 49.8f and >= 33.4f)
             {
                 Data.ImageSource = "https://i.imgur.com/IVftRn3.png";
-            } else if (cpu is < 66.4 and >= 50)
+            } else if (cpu is < 66.4f and >= 50f)
             {
                 Data.ImageSource = "https://i.imgur.com/KtAEWlH.png";
-            } else if (cpu is < 83 and >= 66.5)
+            } else if (cpu is < 83f and >= 66.5f)
             {
                 Data.ImageSource = "https://i.imgur.com/sPgNRAv.png";
-            } else if (cpu is <= 100 and >= 84)
+            } else if (cpu is <= 100f and >= 84f)
             {
                 Data.ImageSource = "https://i.imgur.com/b6sBuI1.png";
             }
@@ -94,16 +81,31 @@ public class RpcHandler
 
     private void SetPresence()
     {
-        GetImage();
+        var allIdle = new PerformanceCounter(
+            "Processor Information",
+            "% Processor Utility",
+            "_Total",
+            true
+        );
+        
+        allIdle.NextValue();
+        
+        GetImage(allIdle.NextValue());
+        
         Client.SetPresence(new RichPresence()
         {
-            Details = $"{Data.CpuTitle} {Data.CpuSeperator} {GetCPUPercent().ToString()}%",
+            Details = string.Format(
+                "{0} {1} {2}%",
+                Data.CpuTitle,
+                Data.CpuSeperator,
+                allIdle.NextValue()
+            ),
             State = string.Format(
                 "{0} {1} {2}/{3}GB",
                 Data.RamTitle,
                 Data.RamSeperator,
                 GetCurrentRamPercent(),
-                8.0),
+                8.0m),
             Assets = new Assets()
             {
                 LargeImageKey = Data.ImageSource,
@@ -116,6 +118,7 @@ public class RpcHandler
     {
         timer.Elapsed += (sender, args) =>
         {
+            Client.Invoke();
             SetPresence();
         };
         timer.Start();
