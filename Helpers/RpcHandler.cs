@@ -49,33 +49,41 @@ public class RpcHandler
         return ram;
     }
 
-    private void GetImage(float cpu)
+    private string GetImage(float cpu)
     {
         if (Data.ImageSource == "default")
         {
             if (cpu is < 16.6f and >= 0.0f)
             {
-                Data.ImageSource = "https://i.imgur.com/QCAIyQ5.png";
-            } else if (cpu is < 33.33f and >= 16.7f)
-            {
-                Data.ImageSource = "https://i.imgur.com/EbQWujK.png";
-            } else if (cpu is < 49.8f and >= 33.4f)
-            {
-                Data.ImageSource = "https://i.imgur.com/IVftRn3.png";
-            } else if (cpu is < 66.4f and >= 50f)
-            {
-                Data.ImageSource = "https://i.imgur.com/KtAEWlH.png";
-            } else if (cpu is < 83f and >= 66.5f)
-            {
-                Data.ImageSource = "https://i.imgur.com/sPgNRAv.png";
-            } else if (cpu is <= 100f and >= 84f)
-            {
-                Data.ImageSource = "https://i.imgur.com/b6sBuI1.png";
+                return "https://i.imgur.com/QCAIyQ5.png";
             }
-            else
+
+            if (cpu is < 33.33f and >= 16.7f)
             {
-                Data.ImageSource = "https://i.imgur.com/zFs1M60.png";
+                return "https://i.imgur.com/EbQWujK.png";
             }
+
+            if (cpu is < 49.8f and >= 33.4f)
+            {
+                return "https://i.imgur.com/IVftRn3.png";
+            }
+
+            if (cpu is < 66.4f and >= 50f)
+            {
+                return "https://i.imgur.com/KtAEWlH.png";
+            }
+
+            if (cpu is < 83f and >= 66.5f)
+            {
+                return "https://i.imgur.com/sPgNRAv.png";
+            }
+
+            if (cpu is <= 100f and >= 84f)
+            {
+                return "https://i.imgur.com/b6sBuI1.png";
+            }
+
+            return "https://i.imgur.com/zFs1M60.png";
         }
     }
 
@@ -108,7 +116,7 @@ public class RpcHandler
                 8.0m),
             Assets = new Assets()
             {
-                LargeImageKey = Data.ImageSource,
+                LargeImageKey = GetImage(allIdle.NextValue()),
                 LargeImageText = "UncannyRPC"
             },
         });
