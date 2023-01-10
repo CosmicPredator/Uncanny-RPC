@@ -3,9 +3,9 @@ title = "uncanny_rpc_config"
 
 # General properties
 [general]
-coverimage_url = "default"
-update_interval = 1000
 app_id = 1061295120948932789
+coverimage_url = "default"
+update_interval = 10000
 
 # CPU usage display properties
 [cpu_monitor]

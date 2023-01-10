@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Platform;
 using AvaloniaEdit;
@@ -45,5 +46,15 @@ public partial class TomlEditor : Window
         {
             Text = fs.ReadToEnd()
         };
+    }
+
+    private void SaveButton_OnClick(object? sender, RoutedEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void CloseButton_OnClick(object? sender, RoutedEventArgs e)
+    {
+        throw new NotImplementedException();
     }
 }

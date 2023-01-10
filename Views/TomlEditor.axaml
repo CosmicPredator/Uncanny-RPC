@@ -69,8 +69,12 @@
                         <StackPanel Grid.Row="2" Orientation="Horizontal"
                                     HorizontalAlignment="Right"
                                     Spacing="10">
-                                <Button Content="Save"></Button>
-                                <Button Content="Cancel"></Button>
+                                <Button Content="Save"
+                                        Name="SaveButton"
+                                        Click="SaveButton_OnClick"></Button>
+                                <Button Content="Cancel"
+                                        Name="CloseButton"
+                                        Click="CloseButton_OnClick"></Button>
                         </StackPanel>
                 </Grid>
                 </Grid>
