@@ -2,13 +2,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="500"
+        mc:Ignorable="d" d:DesignWidth="380" d:DesignHeight="500"
         x:Class="UncannyRPC.Views.MainWindow"
-        Icon="/Assets/avalonia-logo.ico"
+        Icon="/Assets/main-logo.png"
         Title="UncannyRPC"
         TransparencyLevelHint="AcrylicBlur"
         Background="Transparent"
-        Width="400"
+        Width="380"
         Height="500"
         ExtendClientAreaToDecorationsHint="True">
     <Panel>
@@ -25,6 +25,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
                         
             <StackPanel Orientation="Horizontal"
@@ -65,8 +66,15 @@
                                     Click="Button_OnClick"
                                     HorizontalAlignment="Center"></Button>
                         </StackPanel>
-                    </Grid>
+                </Grid>
             </ScrollViewer>
+            <StackPanel Grid.Row="2" HorizontalAlignment="Center">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Copyright © CosmicPredator | Github"
+                               FontWeight="ExtraLight"
+                               FontSize="12"></TextBlock>
+                </StackPanel>
+            </StackPanel>
             </Grid>
     </Panel>
 </Window>

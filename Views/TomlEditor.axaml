@@ -8,6 +8,7 @@
         Title="Toml Editor"
         Width="600"
         Height="430"
+        Icon="/Assets/main-logo.png"
         TransparencyLevelHint="AcrylicBlur"
         Background="Transparent"
         ExtendClientAreaToDecorationsHint="True"
