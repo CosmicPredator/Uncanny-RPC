@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
@@ -41,5 +42,10 @@ public partial class MainWindow : Window
     private void ToggleButton_OnUnchecked(object? sender, RoutedEventArgs e)
     {
         Handler.StopPresence();
+    }
+
+    private void HyperlinkButton_OnClick(object? sender, RoutedEventArgs e)
+    {
+        Process.Start(new ProcessStartInfo { FileName = "https://github.com/CosmicPredator/Uncanny-RPC", UseShellExecute = true });
     }
 }

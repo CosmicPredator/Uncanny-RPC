@@ -60,4 +60,9 @@ public partial class TomlEditor : Window
     {
         Close();
     }
+
+    private void Button_OnClick(object? sender, RoutedEventArgs e)
+    {
+        Process.Start(new ProcessStartInfo { FileName = "https://github.com/CosmicPredator/Uncanny-RPC", UseShellExecute = true });
+    }
 }

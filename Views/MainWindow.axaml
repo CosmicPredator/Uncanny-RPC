@@ -68,13 +68,20 @@
                         </StackPanel>
                 </Grid>
             </ScrollViewer>
-            <StackPanel Grid.Row="2" HorizontalAlignment="Center">
-                <StackPanel Orientation="Vertical">
-                    <TextBlock Text="Copyright © CosmicPredator | Github"
-                               FontWeight="ExtraLight"
-                               FontSize="12"></TextBlock>
+            <StackPanel Grid.Row="2" HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                <TextBlock Text="Copyright © CosmicPredator   | "
+                           FontWeight="ExtraLight"
+                           FontSize="12"
+                           VerticalAlignment="Center"></TextBlock>
+                <Button Content="Github"
+                        FontSize="12"
+                        Background="Transparent"
+                        Name="HyperlinkButton"
+                        Click="HyperlinkButton_OnClick">
+                
+                </Button>
                 </StackPanel>
-            </StackPanel>
-            </Grid>
+        </Grid>
     </Panel>
 </Window>

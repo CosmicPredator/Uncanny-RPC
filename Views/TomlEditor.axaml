@@ -44,7 +44,7 @@
                                                 FontSize="15"
                                                 FontWeight="SemiBold"></TextBlock>
                                         <Button Grid.Column="1"
-                                                CornerRadius="30">
+                                                Click="Button_OnClick">
                                                 <Button.Content>
                                                         <TextBlock
                                                                 Text=" ? "
