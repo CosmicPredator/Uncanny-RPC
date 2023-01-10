@@ -10,10 +10,6 @@
     <ItemGroup>
         <AvaloniaResource Include="Assets\**" />
         <None Remove=".gitignore" />
-        <None Remove="Config\Configuration.toml" />
-        <AvaloniaResource Include="Config\**">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </AvaloniaResource>
         <AvaloniaResource Update="Assets\default_config.toml">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </AvaloniaResource>
@@ -35,5 +31,12 @@
         <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="7.0.0" />
         <PackageReference Include="Tommy" Version="3.1.2" />
         <PackageReference Include="XamlNameReferenceGenerator" Version="1.5.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Config\default_config.toml" />
+      <Content Include="Config\default_config.toml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Text;
 using System.Timers;
 using Avalonia;
 using Avalonia.Platform;
@@ -17,8 +18,7 @@ public class RpcHandler
 
     public RpcHandler()
     {
-        var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-        var instance = new TomlParser(new StreamReader(assets.Open(new Uri("avares://UncannyRPC/Assets/default_config.toml"))));
+        var instance = new TomlParser("Config/default_config.toml");
         Data = instance.Data;
         Client = new(Data.AppId.ToString());
         Initializer();
@@ -114,20 +114,20 @@ public class RpcHandler
 
         Client.SetPresence(new RichPresence()
         {
-            Details = string.Format(
+            Details = Data.IsCpuEnabled ? string.Format(
                 "{0} {1} {2}%",
                 Data.CpuTitle,
                 Data.CpuSeperator,
                 (allIdle.NextValue() < 0 || allIdle.NextValue() > 100)
                     ?100:
                     Math.Round(allIdle.NextValue(), Data.CpuCurrentRound)
-            ),
-            State = string.Format(
+            ) : null,
+            State = Data.IsRamEnabled ? string.Format(
                 "{0} {1} {2}/{3}GB",
                 Data.RamTitle,
                 Data.RamSeperator,
                 Math.Round(GetCurrentRam()/1024.0, Data.RamCurrentRound),
-                Math.Round(GetTotalRam()/1024.0, Data.RamTotalRound)),
+                Math.Round(GetTotalRam()/1024.0, Data.RamTotalRound)): null,
             Assets = new Assets()
             {
                 LargeImageKey = Data.ImageSource == "default" ? 

@@ -52,20 +52,26 @@
                                                 </Button.Content>
                                         </Button>
                                 </Grid>
-                                <AvalonEdit:TextEditor Grid.Row="1" Name="Editor"
-                                                       FontFamily="Consolas, Cascadia Code,Menlo,Monospace"
-                                                       Margin="0, 20"
-                                                       Foreground="#D4D4D4"
-                                                       Background="Black"
-                                                       HorizontalScrollBarVisibility="Auto"
-                                                       VerticalScrollBarVisibility="Visible"
-                                                       FontWeight="Light"
-                                                       FontSize="14" 
-                                                       ShowLineNumbers="True"
-                                                       BorderBrush="DarkGray"
-                                                       Height="270"
-                                                       Padding="10, 10">
-                        </AvalonEdit:TextEditor>
+                                <Grid Grid.Row="1" RowDefinitions="*, Auto">
+                                        <AvalonEdit:TextEditor Grid.Row="0" Name="Editor"
+                                                               FontFamily="Consolas, Cascadia Code,Menlo,Monospace"
+                                                               Margin="0, 20"
+                                                               Foreground="#D4D4D4"
+                                                               Background="Black"
+                                                               HorizontalScrollBarVisibility="Auto"
+                                                               VerticalScrollBarVisibility="Visible"
+                                                               FontWeight="Light"
+                                                               FontSize="14" 
+                                                               ShowLineNumbers="True"
+                                                               BorderBrush="DarkGray"
+                                                               Height="270"
+                                                               Padding="10, 10">
+                                        </AvalonEdit:TextEditor>
+                                        <TextBlock Grid.Row="1"
+                                                   Text="Note: Restart you app for the changes to reflect."
+                                                   Foreground="Red">
+                                        </TextBlock>
+                                </Grid>
                         <StackPanel Grid.Row="2" Orientation="Horizontal"
                                     HorizontalAlignment="Right"
                                     Spacing="10">

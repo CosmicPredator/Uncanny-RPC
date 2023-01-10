@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
+using System.Text;
 using Tommy;
 
 namespace UncannyRPC.Helpers;
@@ -10,11 +12,12 @@ public class TomlParser
     
     public readonly PresenceObject Data = new();
 
-    public TomlParser(StreamReader? filePath)
+    public TomlParser(string filePath)
     {
         try
         {
-            Table = TOML.Parse(filePath);
+            Table = TOML.Parse(File.OpenText(filePath));
+            Debug.WriteLine(File.ReadAllText(filePath, Encoding.UTF8));
         }
         catch (Exception e)
         {

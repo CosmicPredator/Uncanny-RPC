@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Text;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
@@ -17,6 +18,9 @@ namespace UncannyRPC.Views;
 public partial class TomlEditor : Window
 {
     private TextEditor? _textEditor;
+    private IAssetLoader Assets;
+    private StreamReader TomlStreamReader;
+    private StreamWriter TomlStreamWriter;
     public TomlEditor()
     {
         InitializeComponent();
@@ -40,21 +44,20 @@ public partial class TomlEditor : Window
 
     private void LoadTomlToEditor()
     {
-        var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-        var fs = new StreamReader(assets.Open(new Uri("avares://UncannyRPC/Assets/default_config.toml")));
         _textEditor.Document = new TextDocument()
         {
-            Text = fs.ReadToEnd()
+            Text = File.ReadAllText("Config/default_config.toml", Encoding.UTF8)
         };
     }
 
-    private void SaveButton_OnClick(object? sender, RoutedEventArgs e)
+    private async void SaveButton_OnClick(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        await File.WriteAllTextAsync("Config/default_config.toml", _textEditor.Text);
+        Close();
     }
 
     private void CloseButton_OnClick(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Close();
     }
 }
