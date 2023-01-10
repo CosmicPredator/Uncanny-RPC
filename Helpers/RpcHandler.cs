@@ -40,13 +40,13 @@ public class RpcHandler
 
         Client.Initialize();
     }
-    
-    private double GetCurrentRamPercent()
+
+    private long GetTotalRamPercent()
     {
-        string prcName = Process.GetCurrentProcess().ProcessName;
-        var counter_Exec = new PerformanceCounter("Process", "Working Set - Private", prcName);
-        double ram =  (double)counter_Exec.RawValue / 1024.0;
-        return ram;
+        var gcMemoryInfo = GC.GetGCMemoryInfo();
+        var installedMemory = gcMemoryInfo.TotalAvailableMemoryBytes;
+        var physicalMemory = (double)installedMemory / 1048576.0;
+        return (long)physicalMemory;
     }
 
     private string GetImage(float cpu)
@@ -89,16 +89,13 @@ public class RpcHandler
     private void SetPresence()
     {
         var allIdle = new PerformanceCounter(
-            "Processor Information",
-            "% Processor Utility",
-            "_Total",
-            true
+            "Processor Information", 
+            "% Processor Utility", 
+            "_Total"
         );
         
         allIdle.NextValue();
-        
-        GetImage(allIdle.NextValue());
-        
+
         Client.SetPresence(new RichPresence()
         {
             Details = string.Format(
@@ -111,7 +108,7 @@ public class RpcHandler
                 "{0} {1} {2}/{3}GB",
                 Data.RamTitle,
                 Data.RamSeperator,
-                GetCurrentRamPercent(),
+                GetTotalRamPercent(),
                 8.0m),
             Assets = new Assets()
             {
