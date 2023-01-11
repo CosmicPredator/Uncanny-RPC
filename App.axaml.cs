@@ -1,11 +1,3 @@
-using System;
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
-using UncannyRPC.Views;
-
 namespace UncannyRPC;
 
 public partial class App : Application

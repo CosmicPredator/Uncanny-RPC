@@ -1,8 +1,4 @@
-﻿using Avalonia;
-using Avalonia.ReactiveUI;
-using System;
-
-namespace UncannyRPC;
+﻿namespace UncannyRPC;
 
 class Program
 {

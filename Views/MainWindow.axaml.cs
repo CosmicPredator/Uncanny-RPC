@@ -1,12 +1,3 @@
-using System;
-using System.ComponentModel;
-using System.Diagnostics;
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Interactivity;
-using Avalonia.Logging;
-using UncannyRPC.Helpers;
-
 namespace UncannyRPC.Views;
 
 public partial class MainWindow : Window
@@ -15,7 +6,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         Logger.TryGet(LogEventLevel.Fatal, LogArea.Control)?.Log(this, "Avalonia Infrastructure");
-        System.Diagnostics.Debug.WriteLine("System Diagnostics Debug");
+        Debug.WriteLine("System Diagnostics Debug");
         InitializeComponent();
         Handler = new RpcHandler();
     }

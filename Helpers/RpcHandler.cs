@@ -1,14 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Text;
-using System.Timers;
-using Avalonia;
-using Avalonia.Platform;
-using DiscordRPC;
-using DiscordRPC.Logging;
-
-namespace UncannyRPC.Helpers;
+﻿namespace UncannyRPC.Helpers;
 
 public class RpcHandler
 {
