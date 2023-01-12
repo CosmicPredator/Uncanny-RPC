@@ -24,10 +24,7 @@
 - Available for Linux and MacOs (soon...)
 
 ## Documentation
-
-- Instructions on how to use the app is found [here](https://github.com/CosmicPredator/Uncanny-RPC.git).
-
-- TOML Config file documentation is available [here](https://github.com/CosmicPredator/Uncanny-RPC.git).
+- TOML Config file documentation is available [here](https://github.com/CosmicPredator/Uncanny-RPC/blob/devel/docs/Config.md).
 
 ## Information for Developers
 

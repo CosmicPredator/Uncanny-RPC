@@ -71,7 +71,7 @@ this is optional.
 To display your own app name in your Rich 
 Presence, replace the app id with your own 
 Discord app id. To learn how to make your own 
-app, go [here](https://i.imgur.com/SMd8gDb.png).
+app, go [here](https://github.com/CosmicPredator/Uncanny-RPC/blob/devel/docs/CustomClient.md).
 
 ### 2.2 `coverimage_url` property
 This characteristic matches the Rich presence's
