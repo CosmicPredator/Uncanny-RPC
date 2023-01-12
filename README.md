@@ -18,7 +18,7 @@
 
 - Always runs in background.
 - Highly customizable properties.
-- Config file is based on High-Efficiency TOML.
+- Configurable using TOML.
 - Features a changing "Mr. Incredible becoming Uncanny" image which changes based on CPU usage.
 - Simple app, yet adopted the latest fluent design principles.
 - Available for Linux and MacOs (soon...)

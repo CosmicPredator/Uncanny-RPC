@@ -24,4 +24,3 @@ global using TextMateSharp.Grammars;
 
 global using System.Timers;
 global using DiscordRPC.Logging;
-global using Avalonia.ReactiveUI;
